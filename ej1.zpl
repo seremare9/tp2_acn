@@ -10,13 +10,15 @@
 # -------------------------------
 # SETS
 # -------------------------------
-set P := read "cursos.dat" as "<1>" skip 0;
+
+# parciales
+set P := { read "cursos.dat" as "<1s>" };
 
 # aulas que requiere cada parcial
-param a[P] := read "cursos.dat" as "<1> <2>" skip 0;
+param a[P] := read "cursos.dat" as "<1s> 2n";
 
 # Conjunto de pares en conflicto
-set E := read "estudiantes_en_comun.dat" as "<1,2>" skip 0;
+set E := { read "estudiantes-en-comun.dat" as "<1s,2s>" };
 
 # Días válidos según enunciado
 set D := {1,2,3,4,5,9,10,11,12};
