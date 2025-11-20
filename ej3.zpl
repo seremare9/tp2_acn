@@ -59,4 +59,4 @@ subto Aulas:
 subto Dispersion:
     forall <p,q> in E:
             forall <d,t> in D * T with d!=5 and d!=6 and d!=7 and d!=8 and d!=12:
-                x[p,d,t] + x[p,d+1,t] <= 1;
+                x[p,d,t] + x[q,d+1,t] <= 1;
