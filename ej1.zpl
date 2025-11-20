@@ -1,15 +1,5 @@
 
-###############################################################################
-# Modelo de programación de parciales - ZIMPL (para SCIP)
-#
-# Archivos requeridos:
-#   cursos.dat               -> formato:   P0   1
-#   estudiantes_en_comun.dat -> formato:   P0   P178   3   (solo se usan col1 y col2)
-###############################################################################
-
-# -------------------------------
 # SETS
-# -------------------------------
 
 # parciales
 set P := { read "cursos.dat" as "<1s>" };
