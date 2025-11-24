@@ -1,13 +1,11 @@
-#  Nueva restricción: buscamos impedir que haya estudiantes rindiendo tres parciales un mismo dia
-# (es decir, no queremos que haya tres vértices vecinos en G programados un mismo día)
+# Grupo: Chen, Giralt Font, Marelli, Tagle Zorraquín
 
-# Un alumno puede rendir, como mucho, dos parciales en un día. 
-# Vamos a ver qué combinaciones de 2 parciales se pueden hacer 
+# SETS
 
-# parciales
+# Parciales
 set P := { read "cursos.dat" as "<1s>" };
 
-# aulas que requiere cada parcial
+# Aulas que requiere cada parcial
 param a[P] := read "cursos.dat" as "<1s> 2n";
 
 # Conjunto de pares en conflicto
@@ -47,7 +45,7 @@ subto Conflictos:
         forall <d,t> in D * T:
             x[p,d,t] + x[q,d,t] <= 1;
 
-# NUEVA RESTRICCIÓN
+# NUEVA RESTRICCIÓN: impedir que haya estudiantes rindiendo tres parciales un mismo día
 subto MaxParcialesDia:
     forall <i,j,k,d> in P * P * P * D with <i,j> in E and <i,k> in E and <j,k> in E:
         sum <t> in T: (x[i,d,t] + x[j,d,t] + x[k,d,t]) <= 2;

@@ -1,10 +1,11 @@
+# Grupo: Chen, Giralt Font, Marelli, Tagle Zorraquín
 
 # SETS
 
-# parciales
+# Parciales
 set P := { read "cursos.dat" as "<1s>" };
 
-# aulas que requiere cada parcial
+# Aulas que requiere cada parcial
 param a[P] := read "cursos.dat" as "<1s> 2n";
 
 # Conjunto de pares en conflicto
