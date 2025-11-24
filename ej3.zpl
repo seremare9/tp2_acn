@@ -1,6 +1,6 @@
 # Ejercicio 3
 
-#  Nueva restricción: buscamos impedir que haya exámenes que comparten alumnos 2 días seguidos.
+# Nueva restricción: buscamos impedir que se tomen exámenes que comparten alumnos en 2 días seguidos.
 
 # parciales
 set P := { read "cursos.dat" as "<1s>" };
@@ -48,6 +48,9 @@ subto Conflictos:
             x[p,d,t] + x[q,d,t] <= 1;
 
 # Cantidad máxima de parciales que un alumno rinde por día
+subto MaxParcialesDiaMuchosAlumnos:
+    forall <p,q,d> in P * P * D with <p,q> in E and alum[p,q]>=10:
+            sum <t> in T: (x[p,d,t] + x[p,d,t]) <= 1;
 
 subto MaxParcialesDiaPocosAlumnos:
     forall <i,j,k,d> in P * P * P * D with <i,j> in E and <i,k> in E and <j,k> in E and alum[i,j]<10 and alum[i,k]<10 and alum[j,k]<10:
